@@ -3,6 +3,9 @@ import { useGSAP } from "@gsap/react"
 import { heroVideo, smallHeroVideo } from "../utils"
 import { useState } from "react"
 import { useEffect } from "react"
+import ButtonGrande from "./ButtonGrande"
+import { FaLinkedin,FaInstagramSquare,FaFacebookSquare } from "react-icons/fa"
+import { IoMdMail } from "react-icons/io";  
 
 const Hero = () => {
 
@@ -38,11 +41,19 @@ const Hero = () => {
   return (
     <section className='w-full nav-height relative bg-[#0099FF] bg-[url("/deskback.svg")] bg-no-repeat bg-center bg-cover '>
         <div className="h-5/6 w-full flex-center flex-col pb-2">
-            <p id="hero" className="hero-title">Hacemos que enseñar tecnologia sea simple.</p>
+            <p id="hero" className="hero-title">Hacemos que enseñar Tecnología sea simple.</p>
         </div>
-        <div id="cta" className="flex flex-col items-center opacity-0 translate-y-20">
-            <a href="#highlights" className="btn">Buy</a>
-            <p className="font-normal text-xl">From $199/month or $999</p>
+        <div id="cta" className="flex flex-col items-center opacity-0 translate-y-20 gap-y-4">
+            <ButtonGrande 
+            url="/"
+            text="Contactanos!"
+            />
+            <div className="flex items-center justify-center flex-row space-x-3">
+                <FaLinkedin size={30} color={"#FFFFFF"} className="cursor-pointer" />
+                <FaInstagramSquare size={30} color={"#FFFFFF"} className="cursor-pointer" />
+                <FaFacebookSquare size={30} color={"#FFFFFF"} className="cursor-pointer" />
+                <IoMdMail size={30} color={"#FFFFFF"} className="cursor-pointer" />
+            </div>
         </div>
     </section>
   )
