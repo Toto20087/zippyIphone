@@ -2,6 +2,8 @@ import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { rightImg, watchImg } from "../utils"
 import VideoCarousel from "./VideoCarousel"
+import Card from "./cardPropia"
+import Carousel from "./ImageCarrousel"
 
 const Highlights = () => {
 
@@ -18,10 +20,8 @@ const Highlights = () => {
         })
     })
   return (
-    <section id="highlights" className="w-screen overflow-hidden h-full common-padding bg-zinc">
-        <div className="screen-max-width">
-            <VideoCarousel />
-        </div>
+    <section id="highlights" className="w-screen overflow-hidden h-full common-padding bg-[#F5F5F5] ">
+        <Carousel />
     </section>
   )
 }
