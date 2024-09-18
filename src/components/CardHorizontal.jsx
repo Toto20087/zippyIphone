@@ -22,7 +22,7 @@ const CardHorizontal = ({ text  }) => {
 const styles = {
   cardContainer: {
     position: 'relative',
-    width: '673px', // Ajusta el tamaño según necesites
+    width: '600px', // Ajusta el tamaño según necesites
     height: '400px', // Ajusta el tamaño según necesites
     borderRadius: '12px',
     padding: '20px',

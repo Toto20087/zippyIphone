@@ -9,7 +9,7 @@ const Features = () => {
 
   return (
     <section className="h-full common-padding bg-[#0099FF] relative overflow-hidden flex items-center justify-center">
-      <div className="lg:w-[70%] w-full flex items-center justify-center flex-wrap gap-x-10 gap-y-10">
+      <div className="lg:w-[70%] md:w-[70%] w-full flex items-center justify-center flex-wrap gap-x-10 gap-y-10">
         <CardHorizontal 
         text="Desarrolla Competencias Clave en niños, niñas y jóvenes"
         />
