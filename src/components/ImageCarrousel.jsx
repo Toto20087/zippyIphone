@@ -71,7 +71,7 @@ const styles = {
   cardWrapper: {
     flex: 1,
     margin: '0 20px', 
-    transition: 'transform 0.3s ease',
+    transition: 'transform 0.7s ease',
   },
   paginationWrapper: {
     display: 'flex',
