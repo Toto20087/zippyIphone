@@ -5,11 +5,10 @@ const CardNaranja = () => {
     <div style={styles.cardContainer}>
       {/* Texto a la izquierda */}
       <div style={styles.textContainer}>
-        <h2 style={styles.title} className='mb-3'>Programación y pensamiento computacional</h2>
+        <h2 style={styles.title} className='mb-3'>Ciudadanía digital y uso responsable de la tecnología</h2>
         <p style={styles.text}>
-          Introducimos la lógica de Programación y la forma en que las computadoras procesan la información.
-          Desarrollamos habilidades en los niños y niñas para resolver problemas y crear soluciones
-          utilizando el pensamiento computacional.
+        Enseñamos a usar la tecnología de manera segura y responsable, comprendiendo los conceptos de privacidad, seguridad en línea y ética digital. 
+        Promovemos hábitos saludables en el uso de la tecnología y ayudamos a los niños y niñas a gestionar sus emociones en el entorno digital.
         </p>
       </div>
 

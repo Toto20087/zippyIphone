@@ -9,7 +9,7 @@ const Navbar = () => {
             <img src="/logo.svg" alt="Zippy" width={80} height={80} />
             <div className="flex items-baseline gap-7 max-sm:justify-end max-sm:flex-1">
                 <ButtonP 
-                url="/"
+                url="/login"
                 text="Ingresa"
                 />
             </div>

@@ -49,10 +49,10 @@ const Hero = () => {
             text="Contactanos!"
             />
             <div className="flex items-center justify-center flex-row space-x-3">
-                <FaLinkedin size={30} color={"#FFFFFF"} className="cursor-pointer" />
-                <FaInstagramSquare size={30} color={"#FFFFFF"} className="cursor-pointer" />
-                <FaFacebookSquare size={30} color={"#FFFFFF"} className="cursor-pointer" />
-                <IoMdMail size={30} color={"#FFFFFF"} className="cursor-pointer" />
+                <FaLinkedin size={30} className="cursor-pointer hover:text-white/80 transition-all" />
+                <FaInstagramSquare size={30} className="cursor-pointer hover:text-white/80 transition-all" />
+                <FaFacebookSquare size={30} className="cursor-pointer hover:text-white/80 transition-all" />
+                <IoMdMail size={30} className="cursor-pointer hover:text-white/80 transition-all" />
             </div>
         </div>
     </section>

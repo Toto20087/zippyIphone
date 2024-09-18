@@ -5,11 +5,9 @@ const CardAmarilla = () => {
     <div style={styles.cardContainer}>
       {/* Texto a la izquierda */}
       <div style={styles.textContainer}>
-        <h2 style={styles.title} className='mb-3'>Programación y pensamiento computacional</h2>
+        <h2 style={styles.title} className='mb-3'>Arte y creatividad digital</h2>
         <p style={styles.text}>
-          Introducimos la lógica de Programación y la forma en que las computadoras procesan la información.
-          Desarrollamos habilidades en los niños y niñas para resolver problemas y crear soluciones
-          utilizando el pensamiento computacional.
+        Fomentamos la expresión creativa a través de la tecnología, explorando herramientas digitales para el diseño gráfico, la animación, la música y otras formas de arte.
         </p>
       </div>
 
