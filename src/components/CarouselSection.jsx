@@ -10,7 +10,7 @@ const CarouselSection = () => {
             </h2>
             <ClasesCarousel />
         </div>
-        <div className='flex items-center justify-center flex-col mt-5 h-[50vh]'>
+        <div className='flex items-center justify-center flex-col mt-5 h-[75vh]'>
             <h2 className="text-4xl md:text-7xl font-semibold text-center text-white mb-2">
                 Clases Siguientes
             </h2>
