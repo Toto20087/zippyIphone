@@ -8,10 +8,11 @@ const Navbar = () => {
         <nav className="flex w-full justify-between">
             <img src="/logo.svg" alt="Zippy" width={80} height={80} />
             <div className="flex items-baseline gap-7 max-sm:justify-end max-sm:flex-1">
+              <a href="/login">
                 <ButtonP 
-                url="/login"
                 text="Ingresa"
                 />
+              </a>
             </div>
         </nav>
     </header>

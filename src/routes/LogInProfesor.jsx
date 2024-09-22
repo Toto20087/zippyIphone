@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ButtonP from '../components/ButtonPropio';
+import ButtonGrande from '../components/ButtonGrande';
 
 const LoginProfesor = () => {
   const [email, setEmail] = useState('');
@@ -49,8 +50,8 @@ const LoginProfesor = () => {
             type="submit"
             className="w-full font-bold"
           >
-            <ButtonP
-            url="/logInProfesor"
+            <ButtonGrande
+            url="/homeProfesor"
             text="Ingresa"
             />
           </button>

@@ -49,8 +49,8 @@ const LoginAlumno = () => {
             type="submit"
             className="w-full font-bold"
           >
-            <ButtonP
-            url="/logInProfesor"
+            <ButtonGrande
+            url="/homeAlumno"
             text="Ingresa"
             />
           </button>
