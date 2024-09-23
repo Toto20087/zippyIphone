@@ -6,7 +6,7 @@ const VideoSection = () => {
   return (
     <div className="bg-white shadow-lg rounded-xl p-6 mx-auto h-screen flex items-center justify-center flex-col w-full">
       {/* Sección del Video */}
-      <div className="w-2/3">
+      <div className="w-2/4">
         <video
           className="w-full h-auto rounded-xl"
           controls
@@ -17,10 +17,10 @@ const VideoSection = () => {
       </div>
 
       {/* Descripción debajo del video */}
-      <div className="w-2/3 mt-4 flex items-start  justify-between">
+      <div className="w-2/4 mt-4 flex items-start  justify-between">
         <div className='flex items-start justify-center flex-col'>
             <h3 className="text-2xl font-semibold text-black">Aclaraciones del profesor</h3>
-            <p className="text-gray-600 mt-2 w-1/2">
+            <p className="text-gray-600 mt-2 w-2/3">
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
             </p>
         </div>

@@ -6,8 +6,9 @@ const Card = ({ text, isSelected  }) => {
     <div
       style={{
         ...styles.cardContainer,
-        backgroundColor: isSelected ? '#33FFD1' : '#FFFFFF', // Cambia el color de fondo según la selección
+        backgroundColor: isSelected ? '#33FFD1' : '#F5F5F5', // Cambia el color de fondo según la selección
       }}
+      className='shadow-xl'
     >
       <div style={styles.textContainer}>
         <p style={styles.text} className='z-50'>
