@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import ButtonP from '../components/ButtonPropio';
 import ButtonGrande from '../components/ButtonGrande';
+import { useNavigate } from 'react-router-dom';
 
 const LoginProfesor = () => {
+  const navigate = useNavigate()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí iría la lógica para manejar el inicio de sesión
+
     console.log('Iniciar sesión con:', email, password);
+    navigate("/homeProfesor")
+
+
   };
 
   return (
@@ -50,10 +55,9 @@ const LoginProfesor = () => {
             type="submit"
             className="w-full font-bold"
           >
-            <ButtonGrande
-            url="/homeProfesor"
-            text="Ingresa"
-            />
+            <p className='flex text-center items-center justify-center bg-[#33FFD1] cursor-pointer rounded-3xl pt-3 pb-3 pr-16 pl-16 text-lg mr-2 text-[#0099FF] transition-colors duration-200 hover:bg-[#BDFF00] font-semibold'>
+              Ingresa
+            </p>
           </button>
         </form>
       </div>
