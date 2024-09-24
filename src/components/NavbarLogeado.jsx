@@ -1,5 +1,3 @@
-import ButtonP from "./ButtonPropio"
-import { IoMdExit } from "react-icons/io";
 import IconoExit from "./IconoExit";
 
 const NavbarLogeado = () => {

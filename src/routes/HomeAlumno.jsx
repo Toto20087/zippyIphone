@@ -1,8 +1,19 @@
-import React from 'react'
+import NavbarLogeado from "../components/NavbarLogeado"
+import HeroProfesor from "../components/HeroProfesor"
+import NavbarAlumnos from "../components/NavbarAlumnos"
+import HeroAlumno from "../components/HeroAlumno";
+import { useParams } from "react-router-dom";
 
 const HomeAlumno = () => {
+  const {cursoId} = useParams()
+
   return (
-    <div>HomeAlumno</div>
+    <main className="h-screen bg-[#F5F5F5] ">
+        <NavbarAlumnos 
+        curso={cursoId}
+        />
+        <HeroAlumno />
+    </main>
   )
 }
 

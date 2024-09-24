@@ -1,6 +1,6 @@
 import IconoExit from "./IconoExit";
 
-const NavbarCursos = ({curso}) => {
+const NavbarAlumnos = ({curso}) => {
   return (
     <header className="w-full py-5 sm:px-10 px-5 flex justify-between items-center bg-[#F5F5F5] fixed top-0 z-50 ">
         <nav className="flex w-full justify-between items-center">
@@ -17,4 +17,4 @@ const NavbarCursos = ({curso}) => {
   )
 }
 
-export default NavbarCursos
+export default NavbarAlumnos

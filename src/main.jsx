@@ -11,6 +11,8 @@ import HomeAlumno from './routes/HomeAlumno.jsx';
 import CursoPage from './routes/CursoPage.jsx';
 import ClasesPage from './routes/ClasesPage.jsx';
 import ClaseEnSiPage from './routes/ClaseEnSiPage.jsx';
+import ClaseEnSiAlumno from './routes/ClaseEnSiAlumno.jsx';
+import ClasesAlumnos from './routes/ClasesAlumnos.jsx';
 
 const router = createBrowserRouter([
   {
@@ -34,7 +36,7 @@ const router = createBrowserRouter([
     element: <HomeProfesor />
   },
   {
-    path: "/homeAlumno",
+    path: "/homeAlumno/:cursoId",
     element: <HomeAlumno />
   },
   {
@@ -46,9 +48,17 @@ const router = createBrowserRouter([
     element: <ClasesPage />
   },
   {
+    path: "/homeAlumno/:cursoId/:moduloId", 
+    element: <ClasesAlumnos />
+  },
+  {
     path: "/homeProfesor/:cursoId/:moduloId/:claseId", 
     element: <ClaseEnSiPage />
-  }
+  },
+  {
+    path: "/homeAlumno/:cursoId/:moduloId/:claseId", 
+    element: <ClaseEnSiAlumno />
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

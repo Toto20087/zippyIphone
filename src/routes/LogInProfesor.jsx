@@ -13,9 +13,11 @@ const LoginProfesor = () => {
 
     console.log('Iniciar sesión con:', email, password);
     navigate("/homeProfesor")
-
-
   };
+
+  const exit = () => {
+    navigate("/login")
+  }
 
   return (
     <div className="flex h-screen">
@@ -51,14 +53,19 @@ const LoginProfesor = () => {
               required
             />
           </div>
-          <button
-            type="submit"
-            className="w-full font-bold"
-          >
-            <p className='flex text-center items-center justify-center bg-[#33FFD1] cursor-pointer rounded-3xl pt-3 pb-3 pr-16 pl-16 text-lg mr-2 text-[#0099FF] transition-colors duration-200 hover:bg-[#BDFF00] font-semibold'>
-              Ingresa
+          <div className='flex'>
+            <button
+              type="submit"
+              className="w-1/2 font-bold"
+            >
+              <p className='flex text-center items-center justify-center bg-[#33FFD1] cursor-pointer rounded-3xl pt-3 pb-3 pr-16 pl-16 text-lg mr-2 text-[#0099FF] transition-colors duration-200 hover:bg-[#BDFF00] font-semibold'>
+                Ingresa
+              </p>
+            </button>
+            <p onClick={exit} className='w-1/2 flex text-center items-center justify-center cursor-pointer rounded-3xl pt-3 pb-3 pr-16 pl-16 text-lg mr-2 text-[#FFFFFF] transition-all duration-200 hover:border hover:border-white font-regular'>
+                Regresar
             </p>
-          </button>
+          </div>
         </form>
       </div>
     </div>
