@@ -1,4 +1,5 @@
 import IconoExit from "./IconoExit";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 const NavbarLogeado = () => {
   return (
@@ -9,7 +10,10 @@ const NavbarLogeado = () => {
                 <p className="text-black text-3xl font-semibold">Cursos</p>
             </div>
             <div className="flex items-center justify-center gap-x-4">
-                <div className="rounded-full p-4 bg-gray"></div>
+                    <Avatar>
+                        <AvatarImage src="https://github.com/shadcn.png" />
+                        <AvatarFallback>CN</AvatarFallback>
+                    </Avatar>
                 <p className="text-black text-xl font-medium">Manuel</p>
             </div>
         </nav>

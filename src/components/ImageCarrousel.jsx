@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import Card from './cardPropia';
-import { animateWithGsap } from '../utils/animations';
 
 const Carousel = () => {
   // Estado para manejar la card seleccionada
   const [selectedCard, setSelectedCard] = useState(0);
-  animateWithGsap('#carousel', { y:0, opacity:1})
 
   // Datos de ejemplo para las cards
   const cards = [

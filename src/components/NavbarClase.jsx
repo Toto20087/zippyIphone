@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom"
 import IconoExit from "./IconoExit"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 const NavbarClase = () => {
     const {cursoId, moduloId, claseId} = useParams()
@@ -13,7 +14,10 @@ const NavbarClase = () => {
             <p className="text-xl font-semibold">{claseId}</p>
             <div className="flex items-baseline gap-7 max-sm:justify-end max-sm:flex-1">
                 <div className="flex items-center justify-center gap-x-4">
-                    <div className="rounded-full p-4 bg-white"></div>
+                    <Avatar>
+                        <AvatarImage src="https://github.com/shadcn.png" />
+                        <AvatarFallback>CN</AvatarFallback>
+                    </Avatar>
                     <p className="text-white text-xl font-medium">Manuel</p>
                 </div>
             </div>

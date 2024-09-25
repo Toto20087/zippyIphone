@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import ButtonGrande from './ButtonGrande';
-import { heroImg } from '../utils';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({

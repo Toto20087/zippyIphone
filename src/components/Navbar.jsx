@@ -1,5 +1,3 @@
-import {appleImg, bagImg, searchImg} from "../utils"
-import { navLists} from "../constants"
 import ButtonP from "./ButtonPropio"
 
 const Navbar = () => {

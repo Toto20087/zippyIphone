@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import NavbarCursos from '../components/NavbarCursos';
 import TaskCard from '../components/TaskCard';
 import { useNavigate } from 'react-router-dom';
+import { DatePickerWithPresets } from '@/components/DatePicker';
 
 const ClasesPage = () => {
     const navigate = useNavigate();
@@ -33,8 +34,8 @@ const ClasesPage = () => {
         />
         <div className='w-3/4'>
             {sortedTasks.map((task, index) => (
-                <div key={index} onClick={() => handleClickNavigate(task.title)}>
-                    <TaskCard title={task.title} status={task.status} />
+                <div key={index} >
+                    <TaskCard title={task.title} status={task.status} onClick={handleClickNavigate} />
                 </div>
             ))}
         </div>

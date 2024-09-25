@@ -122,3 +122,9 @@ canvas {
     @apply opacity-0 translate-y-[100px]
   }
 }
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}

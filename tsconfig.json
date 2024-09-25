@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "allowJs": true,        // Permite archivos JavaScript
+    "checkJs": false        // Desactiva la verificación de tipo en archivos JavaScript
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}

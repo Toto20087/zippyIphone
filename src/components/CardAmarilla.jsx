@@ -2,7 +2,9 @@ import React from 'react';
 
 const CardAmarilla = () => {
   return (
-    <div style={styles.cardContainer}>
+    <div style={
+      styles.cardContainer
+      }>
       {/* Texto a la izquierda */}
       <div style={styles.textContainer}>
         <h2 style={styles.title} className='mb-3'>Arte y creatividad digital</h2>
