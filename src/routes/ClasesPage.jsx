@@ -34,8 +34,8 @@ const ClasesPage = () => {
         />
         <div className='w-3/4'>
             {sortedTasks.map((task, index) => (
-                <div key={index} >
-                    <TaskCard title={task.title} status={task.status} onClick={handleClickNavigate} />
+                <div key={index}   >
+                    <TaskCard title={task.title} status={task.status} onClick={() => handleClickNavigate(task.title)} />
                 </div>
             ))}
         </div>

@@ -3,7 +3,7 @@ import React from 'react';
 import ButtonGrande from './ButtonGrande';
 import ButtonP from './ButtonPropio';
 
-const TaskCardAlumnos = ({ title, status }) => {
+const TaskCardAlumnos = ({ title, status, onClick }) => {
   let bgColor, statusIcon, statusText;
 
   switch (status) {

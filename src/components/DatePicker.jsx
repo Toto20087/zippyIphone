@@ -20,8 +20,13 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
-export function DatePickerWithPresets() {
+export function DatePickerWithPresets({ onDateSelect }) {
   const [date, setDate] = React.useState(new Date());
+
+  const handleDateChange = (newDate) => {
+    setDate(newDate);
+    onDateSelect(newDate); // Pasa la fecha hacia el componente TaskCard
+  };
 
   return (
     <Popover>
@@ -40,7 +45,7 @@ export function DatePickerWithPresets() {
       <PopoverContent className="flex w-auto flex-col space-y-2 p-2">
         <Select
           onValueChange={(value) =>
-            setDate(addDays(new Date(), parseInt(value)))
+            handleDateChange(addDays(new Date(), parseInt(value)))
           }
         >
           <SelectTrigger>
@@ -54,9 +59,9 @@ export function DatePickerWithPresets() {
           </SelectContent>
         </Select>
         <div className="rounded-md border">
-          <Calendar mode="single" selected={date} onSelect={setDate} />
+          <Calendar mode="single" selected={date} onSelect={handleDateChange} />
         </div>
       </PopoverContent>
     </Popover>
-  )
+  );
 }

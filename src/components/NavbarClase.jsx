@@ -3,7 +3,7 @@ import IconoExit from "./IconoExit"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 const NavbarClase = () => {
-    const {cursoId, moduloId, claseId} = useParams()
+    const {claseId} = useParams()
   return (
     <header className="w-full py-5 sm:px-10 px-5 flex justify-between items-center bg-[#0099FF] fixed top-0 z-99 ">
         <nav className="flex w-full justify-between items-center">
