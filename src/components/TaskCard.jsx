@@ -66,7 +66,10 @@ const TaskCard = ({ title, status, onClick }) => {
         </div>
       </div>
       {status === 'pendiente' && (
-        <>
+        <div className='flex items-center justify-center gap-x-7'>
+          {selectedDate && (
+            <p className="text-base text-white cursor-default">Fecha: {format(selectedDate, "PPP")}</p> // Mostrar la fecha seleccionada
+          )}
           <AlertDialog>
             <AlertDialogTrigger>
               <p className='flex text-center items-center justify-center bg-[#33FFD1] cursor-pointer rounded-3xl pt-1.5 pb-1.5 pr-8 pl-8 text-lg mr-2 text-[#0099FF] transition-colors duration-200 hover:bg-[#BDFF00] font-semibold'>
@@ -86,7 +89,7 @@ const TaskCard = ({ title, status, onClick }) => {
               </AlertDialogFooter>
             </AlertDialogContent>
           </AlertDialog>
-        </>
+        </div>
       )}
       {status === 'no iniciada' && (
         <span className="text-xl mr-2 cursor-pointer flex items-center gap-x-3"> 
