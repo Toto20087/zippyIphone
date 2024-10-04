@@ -27,15 +27,15 @@ const TaskCard = ({ title, status, onClick }) => {
       statusIcon = '✅';
       statusText = 'Completado';
       break;
-    case 'pendiente':
-      bgColor = 'bg-[#0099FF] '; // Celeste para pendiente
+    case 'programado': // Cambiado de "pendiente" a "programado"
+      bgColor = 'bg-[#0099FF] '; // Celeste para programado
       statusIcon = '🌙';
-      statusText = 'Pendiente';
+      statusText = 'Programado';
       break;
-    case 'no iniciada':
-      bgColor = 'bg-[#FF7E1D] '; // Naranja para no iniciada
+    case 'pendiente': // Cambiado de "no iniciada" a "pendiente"
+      bgColor = 'bg-[#FF7E1D] '; // Naranja para pendiente
       statusIcon = '❌';
-      statusText = 'No iniciada';
+      statusText = 'Pendiente';
       break;
     default:
       bgColor = 'bg-gray-400';
@@ -53,7 +53,7 @@ const TaskCard = ({ title, status, onClick }) => {
       localStorage.setItem('selectedDate', formattedDate); // Guarda la fecha en localStorage
       console.log('Fecha seleccionada guardada:', formattedDate); // Muestra la fecha en consola
     }
-    setS("pendiente");
+    setS("programado"); // Cambia a "programado" en vez de "pendiente"
   }
 
   return (
@@ -65,7 +65,7 @@ const TaskCard = ({ title, status, onClick }) => {
           <p className="text-sm">{statusText}</p>
         </div>
       </div>
-      {status === 'pendiente' && (
+      {status === 'programado' && ( // Cambiado de "pendiente" a "programado"
         <div className='flex items-center justify-center gap-x-7'>
           {selectedDate && (
             <p className="text-base text-white cursor-default">Fecha: {format(selectedDate, "PPP")}</p> // Mostrar la fecha seleccionada
@@ -91,20 +91,26 @@ const TaskCard = ({ title, status, onClick }) => {
           </AlertDialog>
         </div>
       )}
-      {status === 'no iniciada' && (
+      {status === 'pendiente' && ( // Cambiado de "no iniciada" a "pendiente"
         <span className="text-xl mr-2 cursor-pointer flex items-center gap-x-3"> 
           <DatePickerWithPresets onDateSelect={(date) => setSelectedDate(date)} />
           <AlertDialog>
             <AlertDialogTrigger>
-              <p className='flex text-center items-center justify-center bg-[#33FFD1] cursor-pointer rounded-3xl pt-1.5 pb-1.5 pr-8 pl-8 text-lg text-nowrap mr-2 text-[#0099FF] transition-colors duration-200 hover:bg-[#BDFF00] font-semibold w-full'>
-                Asignar Dia
-              </p>
+              {selectedDate ? (
+                <p className='flex text-center items-center justify-center bg-[#33FFD1] cursor-pointer rounded-3xl pt-1.5 pb-1.5 pr-8 pl-8 text-lg text-nowrap mr-2 text-[#0099FF] transition-colors duration-200 hover:bg-[#BDFF00] font-semibold w-full'>
+                  Asignar Dia
+                </p>
+              ): (
+                <p className='flex text-center items-center justify-center bg-[#33FFD1] rounded-3xl pt-1.5 pb-1.5 pr-8 pl-8 text-lg text-nowrap mr-2 text-[#0099FF] transition-colors duration-200 font-semibold w-full cursor-not-allowed'>
+                  Asignar Dia
+                </p>
+              ) }
             </AlertDialogTrigger>
             <AlertDialogContent>
               <AlertDialogHeader>
                 <AlertDialogTitle>Estas totalmente seguro?</AlertDialogTitle>
                 <AlertDialogDescription>
-                  Esta acción no se puede deshacer. Esto completara permanentemente la clase
+                  Esta acción no se puede deshacer. Esto le pondra una fecha a la clase
                 </AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>

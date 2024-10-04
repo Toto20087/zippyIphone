@@ -4,6 +4,8 @@ import NavbarCursos from '../components/NavbarCursos';
 import TaskCard from '../components/TaskCard';
 import { useNavigate } from 'react-router-dom';
 import TaskCardAlumnos from '../components/TaskCardAlumnos';
+import NavbarLogeado from '@/components/NavbarLogeado';
+import NavbarAlumnos from '@/components/NavbarAlumnos';
 
 const ClasesAlumnos = () => {
     const navigate = useNavigate();
@@ -29,8 +31,8 @@ const ClasesAlumnos = () => {
 
   return (
     <main className="h-screen bg-[#F5F5F5] flex items-center justify-center ">
-        <NavbarCursos
-        curso={moduloId}
+        <NavbarAlumnos
+        text={moduloId}
         />
         <div className='w-3/4'>
             {sortedTasks.map((task, index) => (

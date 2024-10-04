@@ -36,8 +36,8 @@ const CursoPage = () => {
 
   return (
     <div className="w-full h-screen flex items-center justify-center gap-5 bg-[#F5F5F5] ">
-        <NavbarCursos 
-        curso={cursoId}
+        <NavbarLogeado 
+        text={cursoId}
         />
         <div className='flex items-center justify-center flex-wrap gap-x-4 gap-y-2 w-5/6 h-3/4 overflow-hidden overflow-y-auto'>
           {cursos.map((cursoData, index) => (

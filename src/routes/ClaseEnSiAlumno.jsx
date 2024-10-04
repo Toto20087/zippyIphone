@@ -6,12 +6,15 @@ import ClasesCarousel from '../components/ClasesCarousel';
 import Highlights from '../components/Highlights';
 import CarouselSection from '../components/CarouselSection';
 import CarouselSectionAlumno from '../components/CarouselSectionAlumno';
+import NavbarAlumnos from '@/components/NavbarAlumnos';
 
 const ClaseEnSiAlumno = () => {
     const { cursoId, moduloId, claseId } = useParams();
   return (
     <div className='h-screen bg-[#F5F5F5]'>
-        <NavbarClase />
+        <NavbarAlumnos
+        text={claseId}
+        />
         <VideoSection />
         <CarouselSectionAlumno />
     </div>

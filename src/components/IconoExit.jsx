@@ -1,17 +1,16 @@
-import { IoMdExit } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import { BsBoxArrowLeft } from "react-icons/bs";
 
 const IconoExit = ({color}) => {
 
-    const navigate = useNavigate(); // Hook de navegación
+    const navigate = useNavigate();
 
-    // Función para manejar el clic en el icono de salida
     const handleExit = () => {
-        navigate(-1); // Regresa a la página anterior
+        navigate(-1);
     };
 
   return (
-    <IoMdExit color={color} size={30} onClick={handleExit} className="cursor-pointer" />
+    <BsBoxArrowLeft color={color} size={30} onClick={handleExit} className="cursor-pointer" />
   )
 }
 

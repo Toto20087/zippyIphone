@@ -5,7 +5,9 @@ const HomeProfesor = () => {
 
   return (
     <main className="h-screen bg-[#F5F5F5] ">
-        <NavbarLogeado />
+        <NavbarLogeado
+        text="Cursos"
+        />
         <HeroProfesor />
     </main>
   )

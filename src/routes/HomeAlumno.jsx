@@ -10,7 +10,7 @@ const HomeAlumno = () => {
   return (
     <main className="h-screen bg-[#F5F5F5] ">
         <NavbarAlumnos 
-        curso={cursoId}
+        text={cursoId}
         />
         <HeroAlumno />
     </main>
