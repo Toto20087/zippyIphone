@@ -1,5 +1,3 @@
- 
-
 import Card from "./cardPropia"
 import Carousel from "./ImageCarrousel"
 

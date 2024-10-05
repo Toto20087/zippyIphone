@@ -6,8 +6,8 @@ import NavbarCursos from '../components/NavbarCursos';
 import { useNavigate } from 'react-router-dom';
 
 const CursoPage = () => {
-  const { cursoId } = useParams(); 
   const navigate = useNavigate();
+  const { cursoId, moduloId, claseId } = useParams();
 
   const cursos = [
     { curso: 'Programación 1', completadas: 2, total: 10 },
@@ -38,6 +38,9 @@ const CursoPage = () => {
     <div className="w-full h-screen flex items-center justify-center gap-5 bg-[#F5F5F5] ">
         <NavbarLogeado 
         text={cursoId}
+        cursoId={cursoId}
+        moduloId={moduloId}
+        claseId={claseId}
         />
         <div className='flex items-center justify-center flex-wrap gap-x-4 gap-y-2 w-5/6 h-3/4 overflow-hidden overflow-y-auto'>
           {cursos.map((cursoData, index) => (

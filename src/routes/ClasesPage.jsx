@@ -8,7 +8,7 @@ import NavbarLogeado from '@/components/NavbarLogeado';
 
 const ClasesPage = () => {
     const navigate = useNavigate();
-    const { cursoId, moduloId } = useParams();
+    const { cursoId, moduloId, claseId } = useParams();
     const tasks = [
         { title: 'Figma 1', status: 'completado' },
         { title: 'Figma 2', status: 'completado' },
@@ -32,6 +32,9 @@ const ClasesPage = () => {
     <main className="h-screen bg-[#F5F5F5] flex items-center justify-center ">
         <NavbarLogeado
         text={moduloId}
+        cursoId={cursoId}
+        moduloId={moduloId}
+        claseId={claseId}
         />
         <div className='w-3/4'>
             {sortedTasks.map((task, index) => (
