@@ -34,7 +34,7 @@ export function DatePickerWithPresets({ onDateSelect }) {
         <Button
           variant={"ghost"}
           className={cn(
-            "w-[280px] justify-end text-left font-normal text-white",
+            "w-[280px] justify-center text-left font-normal text-white",
             !date && "text-muted-foreground"
           )}
         >
