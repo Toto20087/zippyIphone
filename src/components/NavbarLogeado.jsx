@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'; // Asumiendo que usas React Router para
 import { Menu as MenuIcon, X as CloseIcon } from "lucide-react";
 import { Button } from "./ui/button";
 
-const NavbarLogeado = ({text, cursoId, moduloId, claseId}) => {
+const NavbarLogeado = ({text, cursoId, moduloId, claseId, name}) => {
     const navigate = useNavigate();
     const home = () => {
         navigate("/homeProfesor")
@@ -88,7 +88,7 @@ const NavbarLogeado = ({text, cursoId, moduloId, claseId}) => {
                         <AvatarImage src="https://github.com/shadcn.png" />
                         <AvatarFallback>CN</AvatarFallback>
                     </Avatar>
-                    <p className="text-white text-xl font-medium">Manuel</p>
+                    <p className="text-white text-xl font-medium">{name}</p>
                 </div>
             </div>
         </nav>

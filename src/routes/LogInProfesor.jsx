@@ -1,29 +1,52 @@
 import React, { useState } from 'react';
-import ButtonP from '../components/ButtonPropio';
-import ButtonGrande from '../components/ButtonGrande';
 import { useNavigate } from 'react-router-dom';
+import { supabase } from '@/components/supabase/conection';
 
 const LoginProfesor = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log('Iniciar sesión con:', email, password);
-    navigate("/homeProfesor")
+    try {
+      // Intentar iniciar sesión con Supabase
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) throw error;
+
+      // Verificar si el usuario existe en la autenticación de Supabase
+      const { data: { user }, error: userError } = await supabase.auth.getUser();
+
+      if (userError) throw userError;
+
+      // Extraer el nombre del email (parte antes del '@')
+      const username = email.split('@')[0];
+
+      // Si el usuario existe, redirigir
+      if (user) {
+        console.log('Usuario autenticado:', username); // Mostrar 'prueba'
+        navigate('/homeProfesor');
+      } else {
+        alert('Usuario no encontrado.');
+      }
+    } catch (error) {
+      alert('Error: ' + error.message);
+    }
   };
 
   const exit = () => {
-    navigate("/login")
-  }
+    navigate('/login');
+  };
 
   return (
     <div className="flex h-screen">
       {/* Left side - Image */}
-      <div className='w-1/3 flex items-center justify-center bg-[url("/bg_login.png")] bg-no-repeat bg-center bg-cover rounded-xl '>
-      </div>
+      <div className='w-1/3 flex items-center justify-center bg-[url("/bg_login.png")] bg-no-repeat bg-center bg-cover rounded-xl'></div>
       
       {/* Right side - Login form */}
       <div className="w-2/3 bg-[#0198FF] flex flex-col items-center justify-center p-12">
@@ -54,16 +77,13 @@ const LoginProfesor = () => {
             />
           </div>
           <div className='flex'>
-            <button
-              type="submit"
-              className="w-1/2 font-bold"
-            >
+            <button type="submit" className="w-1/2 font-bold">
               <p className='flex text-center items-center justify-center bg-[#33FFD1] cursor-pointer rounded-3xl pt-3 pb-3 pr-16 pl-16 text-lg mr-2 text-[#0099FF] transition-colors duration-200 hover:bg-[#BDFF00] font-semibold'>
                 Ingresa
               </p>
             </button>
             <p onClick={exit} className='w-1/2 flex text-center items-center justify-center cursor-pointer rounded-3xl pt-3 pb-3 pr-16 pl-16 text-lg mr-2 text-[#FFFFFF] transition-all duration-200 hover:border hover:border-white font-regular'>
-                Regresar
+              Regresar
             </p>
           </div>
         </form>

@@ -5,6 +5,7 @@ const LoginAlumno = () => {
   const navigate = useNavigate()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const rol = "alumno";
 
   const handleSubmit = (e) => {
     e.preventDefault();
