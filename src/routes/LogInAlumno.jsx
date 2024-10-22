@@ -1,28 +1,76 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { supabase } from '@/components/supabase/conection';
 
 const LoginAlumno = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const rol = "alumno";
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aquí iría la lógica para manejar el inicio de sesión
-    console.log('Iniciar sesión con:', email, password);
-    navigate("/homeAlumno/5to B")
+
+    try {
+      // Intentar iniciar sesión con Supabase
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) throw error;
+
+      const { data: { user }, error: userError } = await supabase.auth.getUser();
+
+      if (userError) throw userError;
+
+      // Verificar si el estudiante existe en la tabla 'students'
+      const { data: studentData, error: studentError } = await supabase
+        .from('students')
+        .select('*')
+        .eq('email', email)
+        .single();
+
+      if (studentError) throw studentError;
+
+      // Si el estudiante existe, obtener el classroom_id y luego el nombre del aula
+      if (studentData) {
+        const { classroom_id } = studentData;
+        if (!classroom_id) {
+          alert('El ID del aula no está disponible.');
+          return;
+        }
+
+        // Obtener el nombre del aula desde la tabla 'classrooms'
+        const { data: classroomData, error: classroomError } = await supabase
+          .from('classrooms')
+          .select('name')
+          .eq('id', classroom_id)
+
+        if (classroomError) throw classroomError;
+
+        // Redirigir a la página del alumno con el nombre del aula
+        if (classroomData) {
+          /* navigate(`/homeAlumno/${classroomData.name}`); */
+          console.log(classroomData.name)
+        } else {
+          alert('No se encontró el aula correspondiente.');
+        }
+      } else {
+        alert('No se encontró un estudiante asociado a este usuario.');
+      }
+    } catch (error) {
+      alert('Error: ' + error.message);
+    }
   };
 
   const exit = () => {
-    navigate("/login")
-  }
+    navigate('/login');
+  };
 
   return (
     <div className="flex h-screen">
       {/* Left side - Image */}
-      <div className='w-1/3 flex items-center justify-center bg-[url("/bg_login.png")] bg-no-repeat bg-center bg-cover rounded-xl '>
-      </div>
+      <div className='w-1/3 flex items-center justify-center bg-[url("/bg_login.png")] bg-no-repeat bg-center bg-cover rounded-xl'></div>
       
       {/* Right side - Login form */}
       <div className="w-2/3 bg-[#0198FF] flex flex-col items-center justify-center p-12">
@@ -53,16 +101,13 @@ const LoginAlumno = () => {
             />
           </div>
           <div className='flex'>
-            <button
-              type="submit"
-              className="w-1/2 font-bold"
-            >
+            <button type="submit" className="w-1/2 font-bold">
               <p className='flex text-center items-center justify-center bg-[#33FFD1] cursor-pointer rounded-3xl pt-3 pb-3 pr-16 pl-16 text-lg mr-2 text-[#0099FF] transition-colors duration-200 hover:bg-[#BDFF00] font-semibold'>
                 Ingresa
               </p>
             </button>
             <p onClick={exit} className='w-1/2 flex text-center items-center justify-center cursor-pointer rounded-3xl pt-3 pb-3 pr-16 pl-16 text-lg mr-2 text-[#FFFFFF] transition-all duration-200 hover:border hover:border-white font-regular'>
-                Regresar
+              Regresar
             </p>
           </div>
         </form>

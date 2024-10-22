@@ -24,15 +24,20 @@ const LoginProfesor = () => {
 
       if (userError) throw userError;
 
-      // Extraer el nombre del email (parte antes del '@')
-      const username = email.split('@')[0];
+      // Verificar si el profesor existe en la tabla 'teachers'
+      const { data: teacherData, error: teacherError } = await supabase
+        .from('teachers')
+        .select('*')
+        .eq('email', email)
 
-      // Si el usuario existe, redirigir
-      if (user) {
-        console.log('Usuario autenticado:', username); // Mostrar 'prueba'
+      if (teacherError) throw teacherError;
+
+      // Si el usuario es un profesor, redirigir
+      if (teacherData) {
+        console.log('Profesor autenticado:', teacherData);
         navigate('/homeProfesor');
       } else {
-        alert('Usuario no encontrado.');
+        alert('No se encontró un profesor asociado a este usuario.');
       }
     } catch (error) {
       alert('Error: ' + error.message);
