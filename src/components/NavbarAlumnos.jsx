@@ -1,13 +1,24 @@
 import IconoExit from "./IconoExit";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 
-const NavbarAlumnos = ({text}) => {
+const NavbarAlumnos = ({text, name}) => {
     const navigate = useNavigate();
+    const { cursoId } = useParams(); 
     const home = () => {
-        navigate("/homeAlumno/5to B")
+        navigate(`/homeAlumno/${cursoId}`)
     }
+
+    const handleSignOut = async () => {
+        try {
+            const { error } = await supabase.auth.signOut(); 
+            if (error) throw error;
+            console.log("todo bien")
+        } catch (error) {
+            console.error('Error al cerrar sesión:', error.message);
+        }
+    };
   return (
     <header className="w-full py-5 sm:px-10 px-5 flex justify-between items-center bg-[#0099FF] fixed top-0 z-99 ">
     <nav className="flex w-full justify-between items-center">
@@ -22,7 +33,7 @@ const NavbarAlumnos = ({text}) => {
                     <AvatarImage src="https://github.com/shadcn.png" />
                     <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
-                <p className="text-white text-xl font-medium">Manuel</p>
+                <p className="text-white text-xl font-medium">{name}</p>
             </div>
         </div>
     </nav>

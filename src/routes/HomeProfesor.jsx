@@ -2,22 +2,38 @@ import React, { useEffect, useState } from 'react';
 import { supabase } from '@/components/supabase/conection';
 import NavbarLogeado from "../components/NavbarLogeado";
 import HeroProfesor from "../components/HeroProfesor";
+import { useNavigate } from 'react-router-dom';
 
 const HomeProfesor = () => {
-  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUser = async () => {
       const { data: { user }, error } = await supabase.auth.getUser();
       if (user) {
-        const username = user.email.split('@')[0];
-        setEmail(username); // Guarda el email del usuario
+        try {
+          const { data: teacherData, error: teacherError } = await supabase
+            .from('teachers')
+            .select('name')
+            .eq('email', user.email); 
+  
+          if (teacherError) throw teacherError;
+  
+          if (teacherData && teacherData.length > 0) {
+            setName(teacherData[0].name);
+          } else {
+            console.error('No se encontró el usuario en la tabla "teachers".');
+          }
+        } catch (error) {
+          console.error('Error al buscar el nombre del usuario:', error);
+        }
       } else {
         console.error('No hay usuario autenticado:', error);
-        // Redirigir a login si no hay usuario
+        navigate("/login")
       }
     };
-
+  
     fetchUser();
   }, []);
 
@@ -25,7 +41,7 @@ const HomeProfesor = () => {
     <main className="h-screen bg-[#F5F5F5]">
       <NavbarLogeado
         text="Cursos"
-        name={email} // Pasa el email al Navbar
+        name={name}
       />
       <HeroProfesor />
     </main>

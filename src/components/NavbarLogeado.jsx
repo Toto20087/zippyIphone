@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Link } from 'react-router-dom'; // Asumiendo que usas React Router para la navegación
 import { Menu as MenuIcon, X as CloseIcon } from "lucide-react";
 import { Button } from "./ui/button";
+import { supabase } from '@/components/supabase/conection';
 
 const NavbarLogeado = ({text, cursoId, moduloId, claseId, name}) => {
     const navigate = useNavigate();
@@ -18,8 +19,14 @@ const NavbarLogeado = ({text, cursoId, moduloId, claseId, name}) => {
       setIsSidebarOpen(!isSidebarOpen);
     };
 
-    const handleSignOut = () => {
-        navigate("/login");
+    const handleSignOut = async () => {
+        try {
+            const { error } = await supabase.auth.signOut(); 
+            if (error) throw error;
+            navigate("/login");
+        } catch (error) {
+            console.error('Error al cerrar sesión:', error.message);
+        }
     };
 
   return (

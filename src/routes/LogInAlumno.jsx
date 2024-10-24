@@ -49,12 +49,13 @@ const LoginAlumno = () => {
         if (classroomError) throw classroomError;
 
         // Redirigir a la página del alumno con el nombre del aula
-        if (classroomData) {
-          /* navigate(`/homeAlumno/${classroomData.name}`); */
-          console.log(classroomData.name)
+        if (classroomData && classroomData.length > 0) {
+          const classroomName = classroomData[0].name;
+          navigate(`/homeAlumno/${classroomName}`);
         } else {
           alert('No se encontró el aula correspondiente.');
         }
+        
       } else {
         alert('No se encontró un estudiante asociado a este usuario.');
       }
