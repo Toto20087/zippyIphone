@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Card = ({ text, isSelected  }) => {
+const Card = ({ text, isSelected, onClick  }) => {
 
   return (
     <div

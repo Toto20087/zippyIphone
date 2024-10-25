@@ -1,5 +1,6 @@
 import React from 'react'
 import ClasesCarousel from './ClasesCarousel'
+import ClasesCarouselProfesor from './ClasesCarrouselProfesor'
 
 const CarouselSection = () => {
   return (
@@ -14,7 +15,7 @@ const CarouselSection = () => {
             <h2 className="text-4xl md:text-7xl font-semibold text-center text-white mb-2">
                 Clases Siguientes
             </h2>
-            <ClasesCarousel /> 
+            <ClasesCarouselProfesor /> 
         </div>
     </section>
   )
