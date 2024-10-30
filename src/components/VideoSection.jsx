@@ -42,12 +42,12 @@ const VideoSection = () => {
   }
 
   return (
-    <div className="bg-white shadow-lg rounded-xl p-6 mx-auto h-screen flex items-center justify-center flex-col w-screen ">
+    <div className="bg-white shadow-lg rounded-xl p-6 mx-auto h-[125vh] flex items-center justify-center flex-col w-screen ">
 
-      <div className="w-2/4 flex items-center justify-center">
+      <div className="w-fit h-fit flex items-center justify-center">
         {content ? (
           // Mostrar el contenido de la clase (iframe)
-          <div dangerouslySetInnerHTML={{ __html: content }} className="w-screen h-auto rounded-xl flex items-center justify-center" />
+          <div dangerouslySetInnerHTML={{ __html: content }} />
         ) : (
           // Mientras se carga el contenido
           <p className='text-black'>Cargando contenido de la clase...</p>
@@ -65,7 +65,7 @@ const VideoSection = () => {
         <div className="w-2/4 mt-4 flex items-center justify-center">
           <FaDownload className="text-gray-600 mr-2" />
           <a
-            href="#" 
+            href="#"
             className="text-gray-600 font-medium hover:underline w-56 text-end"
             download
           >
