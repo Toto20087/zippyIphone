@@ -44,7 +44,7 @@ const VideoSection = () => {
   return (
     <div className="bg-white shadow-lg rounded-xl p-6 mx-auto h-[125vh] flex items-center justify-center flex-col w-screen ">
 
-      <div className="w-fit h-fit flex items-center justify-center">
+      <div className="w-fit h-full flex items-center justify-center">
         {content ? (
           // Mostrar el contenido de la clase (iframe)
           <div dangerouslySetInnerHTML={{ __html: content }} />
