@@ -16,7 +16,7 @@ const ClassCard = ({curso}) => {
               <h2 className="text-lg font-bold">{curso}</h2>
             </div>
             <ButtonP
-            text="Ver clase"
+            text="Ver modulos"
             />
           </div>
         </div>
