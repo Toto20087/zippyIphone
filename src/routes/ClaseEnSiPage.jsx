@@ -8,6 +8,14 @@ import CarouselSection from '../components/CarouselSection';
 import NavbarLogeado from '@/components/NavbarLogeado';
 import { useEffect, useState } from 'react';
 import { supabase } from '@/components/supabase/conection';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
 
 const ClaseEnSiPage = () => {
     const { cursoId, moduloId, claseId } = useParams();
@@ -52,6 +60,27 @@ const ClaseEnSiPage = () => {
           claseId={claseId}
           name={name}
         />
+        <div className="fixed bottom-0 left-0 mb-4 ml-4">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href='/homeProfesor'>Clases</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink href={`/homeProfesor/${cursoId}`}>Modulos</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink href={`/homeProfesor/${cursoId}/${moduloId}`}>Clases</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{claseId}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
         <VideoSection />
         <CarouselSection />
     </div>

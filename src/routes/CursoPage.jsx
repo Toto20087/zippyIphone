@@ -3,6 +3,14 @@ import { useParams, useNavigate } from 'react-router-dom';
 import ProgressCard from '../components/ProgressCard';
 import NavbarLogeado from '../components/NavbarLogeado';
 import { supabase } from '@/components/supabase/conection';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
 
 
 const CursoPage = () => {
@@ -107,6 +115,19 @@ const CursoPage = () => {
   return (
     <div className="w-full h-screen flex items-center justify-center gap-5 bg-[#F5F5F5]">
       <NavbarLogeado text={cursoId} name={name} />
+      <div className="fixed bottom-0 left-0 mb-4 ml-4">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href='/homeProfesor'>Clases</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Modulos</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
       <div className="flex items-center justify-center flex-wrap gap-x-4 gap-y-2 w-5/6 h-3/4 overflow-hidden overflow-y-auto">
         {modulos.map((moduloData, index) => (
           <div key={index} onClick={() => handleModuloClick(moduloData.curso)}>

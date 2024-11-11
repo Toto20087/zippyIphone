@@ -3,6 +3,14 @@ import { supabase } from '@/components/supabase/conection';
 import NavbarLogeado from "../components/NavbarLogeado";
 import HeroProfesor from "../components/HeroProfesor";
 import { useNavigate } from 'react-router-dom';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
 
 const HomeProfesor = () => {
   const [name, setName] = useState('');
@@ -43,6 +51,15 @@ const HomeProfesor = () => {
         text="Cursos"
         name={name}
       />
+      <div className="fixed bottom-0 left-0 mb-4 ml-4">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbPage>Clases</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
       <HeroProfesor />
     </main>
   );

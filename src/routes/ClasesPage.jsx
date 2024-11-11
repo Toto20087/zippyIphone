@@ -3,6 +3,14 @@ import { useParams, useNavigate } from 'react-router-dom';
 import NavbarLogeado from '@/components/NavbarLogeado';
 import TaskCard from '@/components/TaskCard';
 import { supabase } from '@/components/supabase/conection';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
 
 const ClasesPage = () => {
   const navigate = useNavigate();
@@ -96,6 +104,23 @@ const ClasesPage = () => {
   return (
     <main className="h-screen bg-[#F5F5F5] flex items-center justify-center">
       <NavbarLogeado text={moduloId} cursoId={cursoId} moduloId={moduloId} name={name} />
+      <div className="fixed bottom-0 left-0 mb-4 ml-4">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href='/homeProfesor'>Clases</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href={`/homeProfesor/${cursoId}`}>Modulos</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Clases</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
       <div className="w-3/4">
         {tasks.length === 0 ? (
           <p>No hay lecciones disponibles</p>

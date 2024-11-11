@@ -13,6 +13,7 @@ import ClasesPage from './routes/ClasesPage.jsx';
 import ClaseEnSiPage from './routes/ClaseEnSiPage.jsx';
 import ClaseEnSiAlumno from './routes/ClaseEnSiAlumno.jsx';
 import ClasesAlumnos from './routes/ClasesAlumnos.jsx';
+import BreadCrumbAbsolute from './components/BreadCrumbAbsoluteProfe.jsx';
 
 const router = createBrowserRouter([
   {
